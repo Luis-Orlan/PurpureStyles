@@ -1,0 +1,147 @@
+/* DESENVOLVIDO POR: Orlan rocha
+E-MAIL: orlan.rocha@outlook.com
+PROJETO: PurpureStyles Template */
+*{
+	overflow: hidden;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+   background-image: linear-gradient(to bottom left, rgba(81, 8, 120, .01) 0%, rgba(81, 8, 120, .5) 100%);
+}
+.c-ft-prodesp{
+   color: rgb(80,8,120);
+}
+.c-fd-prodesp{
+   background-color: rgba(81, 8, 120, .1);
+}
+
+.base-Login{
+    margin-top: 3%;
+    max-width: 860px;
+}
+.base-cadastro{
+   margin-top: 1%;
+   max-width: 860px;
+}
+.font-bold{
+	font-weight:700;
+}
+.base-Login>.r-esquerda-3{
+    background: linear-gradient(rgba(81, 8, 120, .1), rgba(81, 8, 120, .8)),url("../img/banner-background.jpg") center center;
+	background-repeat: no-repeat;
+}
+.base-cadastro>.r-direita-3{
+    background: linear-gradient(rgba(81, 8, 120, .1), rgba(81, 8, 120, .8)),url("../img/bg-cadastro.jpg") center center;
+	background-repeat: no-repeat;
+}
+@media(max-width: 768px){
+    .base-Login>.r-esquerda-3, .base-cadastro>.r-direita-3{
+        display: none;
+    }
+    .base-Login>.r-direita-3, .base-cadastro>.r-direita-3{
+        border-radius: .6rem;
+    }
+    .grid-2{display: -ms-grid; display: grid; -ms-grid-columns: auto; grid-template-columns: auto; } 
+}
+.form-group{
+    position: relative;
+    padding: 1.2rem;
+}
+.form-group>input[type=email],.form-group>input[type=text], .form-group>input[type=password]{
+    padding: .7rem .7rem .7rem 2.4rem;
+    border-radius: .6rem;
+    font-size: 1.2rem;
+    border: 2px solid rgba(81, 8, 120, .8);
+    color: rgba(81, 8, 120, .8);
+    font-weight: 500;
+}
+.form-group>input[type=text]:hover, 
+.form-group>input[type=password]:hover,
+.form-group>input[type=text]:active, 
+.form-group>input[type=password]:active,
+.form-group>input[type=text]:focus, 
+.form-group>input[type=password]:focus,
+.form-group>input[type=email]:focus,
+.form-group>input[type=email]:hover,
+.form-group>input[type=email]:active{
+    padding-left: 3rem;
+}
+
+.form-group>label{
+    font-size: .8rem;
+    color: rgba(81, 8, 120, .8);
+    font-weight: 600;
+    margin-left: .4rem;
+}
+.form-group>.usuario{
+    background-image: url('../img/user1.png');
+    background-repeat: no-repeat;
+    background-position: .5rem .7rem;
+}
+
+.form-group>.senha{
+    background-image: url('../img/password0.png');
+    background-repeat: no-repeat;
+    background-position: .5rem .6rem;
+}
+.form-group>button{
+    width: 100%;
+    padding: 1rem;
+    background-color:  rgb(106, 53, 180);
+    color: white;
+    border-radius: .6rem;
+    font-size: 1rem;
+    transition: background-color .7s;
+}
+
+.form-group>button:hover,
+.form-group>button:active,
+.form-group>button:focus {
+    background-color:  rgb(81, 8, 120);
+}
+
+
+@-webkit-keyframes girar0 /* Safari and Chrome */ {
+100% {
+-webkit-transform: rotate(360deg);
+-o-transform: rotate(360deg);
+transform: rotate(360deg);
+}
+}
+@keyframes girar0 {
+100% {
+-ms-transform: rotate(360deg);
+-moz-transform: rotate(360deg);
+-webkit-transform: rotate(360deg);
+-o-transform: rotate(360deg);
+transform: rotate(360deg);
+}
+}
+.animacao{ display: none;}
+.carregando-i {
+padding: 1rem;
+border-left: 2px solid rgb(80, 8, 120);
+width: 20px;
+height: 20px;
+border-radius: 50%;
+-webkit-animation: girar0 1.4s linear infinite;
+-moz-animation: girar0 1.4s linear infinite;
+-ms-animation: girar0 1.4s linear infinite;
+-o-animation: girar0 1.4s linear infinite;
+animation: girar0 1.4s linear infinite;
+}
+.carregando-o {
+margin-top: -27px;
+padding: .6rem;
+border-top: 2px solid rgb(80, 8, 120);
+width: 15px;
+height: 15px;
+border-radius: 50%;
+-webkit-animation: girar0 1.4s linear infinite;
+-moz-animation: girar0 1.4s linear infinite;
+-ms-animation: girar0 1.4s linear infinite;
+-o-animation: girar0 1.4s linear infinite;
+animation: girar0 1.4s linear infinite;
+animation-direction:reverse;
+}

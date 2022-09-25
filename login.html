@@ -1,0 +1,100 @@
+<!-- DESENVOLVIDO POR: Orlan rocha
+E-MAIL: orlan.rocha@outlook.com
+PROJETO: PurpureStyles Template -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | PurpureStyles</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/framePERCSS.css">
+    <link rel="stylesheet" href="css/framePERCSS-animacao.css">
+    <link rel="stylesheet" href="css/css.css">
+    <style>
+
+    </style>
+</head>
+<body class="c-fd-purpureStyles">
+  <div class="container">
+        <div class="base-Login grid-2 p-3">
+            <div class="r-esquerda-3 p-3 c-fd-branco r-direita-1 ">
+
+            </div>
+            <div class="r-direita-3 p-3 c-fd-branco">
+                <div class="p-6">
+                    <div class="p-3 w-75 m-t-6">
+                        <img src="img/logo.png" alt="purpureStyles">
+                    </div>
+                    <div class="txt-center p-5"><h1 class="c-ft-purpureStyles f-s-3">ACESSO RESTRITO</h1></div>
+                    <form class="login">
+                        <div class="form-group">
+                            <label for="usuario">Usuário</label>
+                            <input class="usuario" type="email" id="usuario" name="usuario" placeholder="Usuário" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="senha">Senha</label>
+                            <input class="senha" type="password" id="senha" name="senha" placeholder="Senha" max='8' min='6' required/>
+                        </div>
+                        <div class="form-group txt-center">
+                            <div class="animacao" ><div class="carregando-i"></div><div class="carregando-o"></div></div>
+                            <button type="submit" class="entrar" name="entrar" value="1">Entrar</button>
+                        </div>
+                        <div id="msg"></div>
+						<p class="c-ft-purpureStyles f-s-3 p-t-6 txt-center">NÃO POSSUÍ CADASTRO? <br/><br/>
+							<a href="cadastro.html" title="Cadastro" class="font-bold c-ft-purpureStyles">
+								CLIQUE AQUI PARA FAZER O CADASTRO
+							</a>
+						</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let botao           = null,
+            formulario      = null,
+            load            = null,
+            msg             = null,
+            erro404         = "404 | Solicitação não encontrada.";
+
+        if(document.querySelector(".login") == null){
+            console.log(document.querySelectorAll(".login"));
+        }else{
+            botao           = document.querySelector(".entrar"),
+            formulario      = document.querySelector(".login"),
+            load            = document.querySelector(".animacao"),
+            msg             = document.getElementById("msg");
+            formulario.addEventListener("submit", login);
+        }
+
+        
+        function login(e) {
+            e.preventDefault();
+            let login = document.querySelector('.login');
+            botao.style.display = "none";
+            load.style.display = "block";
+
+            let formData = new FormData(login), object = {};
+            formData.forEach((value, key) => object[key] = value);
+
+            let json = JSON.stringify(object);
+            console.log(json); 
+            var ajax = new XMLHttpRequest();
+            ajax.open("POST", "", true), 
+            ajax.setRequestHeader("Content-type", "application/json"), 
+            ajax.send(json), 
+            ajax.onreadystatechange = function(){
+                if(ajax.readyState == 4){
+                    if(ajax.status == 200){
+                        let data = JSON.parse(ajax.responseText) ?? '';
+                        console.log(ajax.responseText);
+                    }else{ msg.innerHTML = erro404; }
+                }else{ msg.innerHTML = erro404; }
+            }
+
+        }
+    </script>
+</body>
+</html>

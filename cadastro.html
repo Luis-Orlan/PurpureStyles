@@ -1,0 +1,112 @@
+<!-- DESENVOLVIDO POR: Orlan rocha
+E-MAIL: orlan.rocha@outlook.com
+PROJETO: PurpureStyles Template -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | PurpureStyles Template</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/framePERCSS.css">
+    <link rel="stylesheet" href="css/framePERCSS-animacao.css">
+    <link rel="stylesheet" href="css/css.css">
+    <style>
+
+    </style>
+</head>
+<body class="c-fd-purpureStyles">
+  <div class="container">
+        <div class="base-cadastro grid-2 p-3">
+            
+            <div class="p-3 c-fd-branco r-direita-1 r-esquerda-3">
+                <div class="p-4">
+                    <div class="p-2 w-50">
+                        <img src="img/logo.png" alt="PurpureStyles Template">
+                    </div>
+                    <div class="txt-center p-1">
+						<h1 class="c-ft-purpureStyles f-s-4">VAMOS INICIAR SEU CADASTRO</h1>
+						
+					</div>
+                    <form class="cadastro">
+						<div class="form-group">
+                            <label for="usuario">E-mail</label>
+                            <input class="usuario" type="email" id="usuario" name="usuario" placeholder="E-mail" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="usuario">Nome Completo</label>
+                            <input class="usuario" type="text" id="usuario" name="usuario" placeholder="Nome Completo" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="senha">Senha</label>
+                            <input class="senha" type="password" id="senha" name="senha" placeholder="Senha" max='8' min='6' required/>
+                        </div>
+						<div class="form-group">
+                            <label for="senha">Confirmar Senha</label>
+                            <input class="senha" type="password" id="senha" name="senha" placeholder="Confirmar Senha" max='8' min='6' required/>
+                        </div>
+                        <div class="form-group txt-center">
+                            <div class="animacao" ><div class="carregando-i"></div><div class="carregando-o"></div></div>
+                            <button type="submit" class="entrar" name="entrar" value="1">Cadastrar</button>
+                        </div>
+                        <div id="msg"></div>
+						<p class="c-ft-purpureStyles f-s-3 p-t-6 txt-center">JÁ POSSUÍ CADASTRO? <br/><br/>
+							<a href="login.html" title="Login" class="font-bold c-ft-purpureStyles">
+								CLIQUE AQUI PARA FAZER LOGIN
+							</a>
+						</p>
+                    </form>
+                </div>
+            </div>
+			<div class="r-direita-3  p-3 c-fd-branco ">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        let botao           = null,
+            formulario      = null,
+            load            = null,
+            msg             = null,
+            erro404         = "404 | Solicitação não encontrada.";
+
+        if(document.querySelector(".cadastro") == null){
+            console.log(document.querySelectorAll(".cadastro"));
+        }else{
+            botao           = document.querySelector(".entrar"),
+            formulario      = document.querySelector(".cadastro"),
+            load            = document.querySelector(".animacao"),
+            msg             = document.getElementById("msg");
+            formulario.addEventListener("submit", cadastro);
+        }
+
+        
+        function cadastro(e) {
+            e.preventDefault();
+            let cadastro = document.querySelector('.cadastro');
+            botao.style.display = "none";
+            load.style.display = "block";
+
+            let formData = new FormData(cadastro), object = {};
+            formData.forEach((value, key) => object[key] = value);
+
+            let json = JSON.stringify(object);
+            console.log(json); 
+            var ajax = new XMLHttpRequest();
+            ajax.open("POST", "", true), 
+            ajax.setRequestHeader("Content-type", "application/json"), 
+            ajax.send(json), 
+            ajax.onreadystatechange = function(){
+                if(ajax.readyState == 4){
+                    if(ajax.status == 200){
+                        let data = JSON.parse(ajax.responseText) ?? '';
+                        console.log(ajax.responseText);
+                    }else{ msg.innerHTML = erro404; }
+                }else{ msg.innerHTML = erro404; }
+            }
+
+        }
+    </script>
+</body>
+</html>
