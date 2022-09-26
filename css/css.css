@@ -185,6 +185,9 @@ a>img{
         background: url('../img/null.png');
     }
    }
+   @media (max-width: 1024px){
+    .grid-6, .grid-4{display: -ms-grid; display: grid; -ms-grid-columns: auto; grid-template-columns: auto; }
+   }
    body{
     overflow-y: scroll;
    }
