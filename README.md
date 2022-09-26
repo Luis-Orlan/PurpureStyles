@@ -1,4 +1,6 @@
 # PurpureStyles
-PurpureStyles Template
+<h4 color="purpure">PurpureStyles Template</h4>
 
-Incluido requisição AJAX JSON.
+<strong> Incluido no projeto requisição AJAX em JSON.</a>
+
+Demo: <a href="https://luis-orlan.github.io/PurpureStyle"> https://luis-orlan.github.io/PurpureStyle </a>
