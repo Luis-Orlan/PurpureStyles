@@ -186,7 +186,7 @@ a>img{
     }
    }
    @media (max-width: 1024px){
-    .grid-6, .grid-4{display: -ms-grid; display: grid; -ms-grid-columns: auto; grid-template-columns: auto; }
+    .grid-6, .grid-4{display: -ms-grid; display: grid; -ms-grid-columns: auto !important; grid-template-columns: auto !important;}
    }
    body{
     overflow-y: scroll;
